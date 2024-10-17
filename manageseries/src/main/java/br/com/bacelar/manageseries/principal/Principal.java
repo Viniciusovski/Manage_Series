@@ -7,6 +7,7 @@ import br.com.bacelar.manageseries.service.ConsumoAPI;
 import br.com.bacelar.manageseries.service.ConverteDados;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -36,5 +37,14 @@ public class Principal {
 
         // Percorre para recuperar apenas o nome dos episodios
         temporadas.forEach(t -> t.episodios().forEach(e -> System.out.println(e.titulo())));
+
+        List<String> nomes = Arrays.asList("Vinícius", "Leonardo", "Galadriel", "Lúcio", "Rihanna");
+
+        nomes.stream()
+                .sorted()
+                .limit(3)
+                .filter(n -> n.startsWith("L"))
+                .map(n -> n.toUpperCase())
+                .forEach(System.out::println);
     }
 }
